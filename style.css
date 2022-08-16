@@ -1,0 +1,192 @@
+:root {
+  --bg-color: #040924;
+  --title-color: #0C3440;
+  --text-color: #00453A;
+  --bg-input-color: #DCE2E9;
+  --input-text-color: #212529;
+  --input-placeholder-color: rgba(73, 80, 87, 0.5);
+  --button-color: #02799D;
+  --button-hover-color: #03607c;
+  --error-color: #F03E3E;
+
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+body, input, button {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  background-color: white;
+  padding: 4.8rem 4rem 6.4rem;
+  margin: 1.6rem;
+  max-width: 42.8rem;
+  border-radius: 0.6rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 3.2rem;
+  line-height: 4rem;
+  color: var(--title-color);
+}
+
+form {
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+
+form label {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--text-color);
+
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+form input {
+  width: 100%;
+  padding: 1.6rem;
+  background-color: var(--bg-input-color);
+  color: var(--input-text-color);
+  border: 1px solid rgba(73, 80, 87, 0.3);
+  border-radius: 0.4rem;
+}
+
+form input::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+form input:focus {
+  outline: 2px solid var(--button-color);
+}
+
+form button {
+  font-weight: bold;
+  line-height: 2rem;
+  color: white;
+  background-color: var(--button-color);
+  border:none;
+  border-radius: 0.4rem;
+
+  padding: 1.8rem;
+  margin-top: 3.2rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+
+  transition: background .3s;
+}
+
+form button:hover {
+  background-color: var(--button-hover-color);
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+
+  form {
+    width: 100%;
+  }
+  
+}
+
+/* -------modal--------- */
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: grid;
+  place-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+  border: none;
+  background-color: transparent;
+
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.modal button:hover {
+  transform: scale(1.2);
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* -------alert error---------- */
+
+.alert-error.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.alert-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-block: 0.8rem;
+
+  background-color: var(--error-color);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-30px);
+  transition: transform 0.5s;
+}
+
+.alert-error h2 {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: white;
+
+  text-align: center;
+}
+
