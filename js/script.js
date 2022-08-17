@@ -1,6 +1,6 @@
 import { modal } from './modal.js'
 import { alertError } from './alert-error.js'
-import { IMC, notANumber } from './utils.js'
+import { calculateIMC, notANumber } from './utils.js'
 
 const form = document.querySelector('form')
 const inputWeight = document.querySelector('#weight')
@@ -19,8 +19,6 @@ form.onsubmit = (event) => {
     return;
   }
 
-  alertError.close()
-
   const result = calculateIMC(weight, height)
   
   displayResultMessage(result)
@@ -32,3 +30,6 @@ function displayResultMessage(result) {
   modal.message.innerText = message
   modal.open()
 }
+
+inputWeight.oninput = () => alertError.close()
+inputHeight.oninput = () => alertError.close()
